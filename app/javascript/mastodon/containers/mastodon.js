@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import configureStore from '../store/configureStore';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import { ScrollContext } from 'react-router-scroll-4';
 import UI from '../features/ui';
 import { fetchCustomEmojis } from '../actions/custom_emojis';
@@ -74,11 +74,11 @@ export default class Mastodon extends React.PureComponent {
       <IntlProvider locale={locale} messages={messages}>
         <Provider store={store}>
           <ErrorBoundary>
-            <BrowserRouter basename='/web'>
+            <HashRouter basename='/'>
               <ScrollContext shouldUpdateScroll={this.shouldUpdateScroll}>
                 <Route path='/' component={UI} />
               </ScrollContext>
-            </BrowserRouter>
+            </HashRouter>
           </ErrorBoundary>
         </Provider>
       </IntlProvider>
