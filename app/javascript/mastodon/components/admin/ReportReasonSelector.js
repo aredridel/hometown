@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import api from '../../api';
 import { injectIntl, defineMessages } from 'react-intl';
 import classNames from 'classnames';
+import { useStore } from 'react-redux';
 
 const messages = defineMessages({
   other: { id: 'report.categories.other', defaultMessage: 'Other' },
@@ -101,7 +102,8 @@ class ReportReasonSelector extends React.PureComponent {
   };
 
   componentDidMount() {
-    api().get('/api/v1/instance').then(res => {
+    const store = useStore();
+    api(store.getState).get('/api/v1/instance').then(res => {
       this.setState({
         rules: res.data.rules,
       });
@@ -114,11 +116,13 @@ class ReportReasonSelector extends React.PureComponent {
     const { id, disabled } = this.props;
     const { category, rule_ids } = this.state;
 
+    const store = useStore();
+
     if (disabled) {
       return;
     }
 
-    api().put(`/api/v1/admin/reports/${id}`, {
+    api(store.getState).put(`/api/v1/admin/reports/${id}`, {
       category,
       rule_ids,
     }).catch(err => {

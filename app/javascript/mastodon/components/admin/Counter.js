@@ -5,6 +5,7 @@ import { FormattedNumber } from 'react-intl';
 import { Sparklines, SparklinesCurve } from 'react-sparklines';
 import classNames from 'classnames';
 import Skeleton from '../../components/skeleton';
+import { useStore } from 'react-redux';
 
 const percIncrease = (a, b) => {
   let percent;
@@ -44,7 +45,9 @@ export default class Counter extends React.PureComponent {
   componentDidMount () {
     const { measure, start_at, end_at, params } = this.props;
 
-    api().post('/api/v1/admin/measures', { keys: [measure], start_at, end_at, [measure]: params }).then(res => {
+    const store = useStore();
+
+    api(store.getState).post('/api/v1/admin/measures', { keys: [measure], start_at, end_at, [measure]: params }).then(res => {
       this.setState({
         loading: false,
         data: res.data,

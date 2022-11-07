@@ -4,6 +4,7 @@ import ImmutablePureComponent from 'react-immutable-pure-component';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import api from '../../../api';
 import IconButton from '../../../components/icon_button';
+import { useStore } from 'react-redux';
 
 const messages = defineMessages({
   close: { id: 'lightbox.close', defaultMessage: 'Close' },
@@ -28,7 +29,9 @@ class EmbedModal extends ImmutablePureComponent {
 
     this.setState({ loading: true });
 
-    api().post('/api/web/embed', { url }).then(res => {
+    const store = useStore();
+
+    api(store.getState).post('/api/web/embed', { url }).then(res => {
       this.setState({ loading: false, oembed: res.data });
 
       const iframeDocument = this.iframe.contentWindow.document;

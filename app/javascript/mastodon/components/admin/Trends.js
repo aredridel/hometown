@@ -4,6 +4,7 @@ import api from '../../api';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import Hashtag from '../../components/hashtag';
+import { useStore } from 'react-redux';
 
 export default class Trends extends React.PureComponent {
 
@@ -19,7 +20,9 @@ export default class Trends extends React.PureComponent {
   componentDidMount () {
     const { limit } = this.props;
 
-    api().get('/api/v1/admin/trends/tags', { params: { limit } }).then(res => {
+    const store = useStore();
+
+    api(store.getState).get('/api/v1/admin/trends/tags', { params: { limit } }).then(res => {
       this.setState({
         loading: false,
         data: res.data,

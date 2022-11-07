@@ -4,6 +4,7 @@ import api from '../../api';
 import { FormattedMessage, FormattedNumber, FormattedDate } from 'react-intl';
 import classNames from 'classnames';
 import { roundTo10 } from '../../utils/numbers';
+import { useStore } from 'react-redux';
 
 const dateForCohort = cohort => {
   switch(cohort.frequency) {
@@ -30,7 +31,9 @@ export default class Retention extends React.PureComponent {
   componentDidMount () {
     const { start_at, end_at, frequency } = this.props;
 
-    api().post('/api/v1/admin/retention', { start_at, end_at, frequency }).then(res => {
+    const store = useStore();
+
+    api(store.getState).post('/api/v1/admin/retention', { start_at, end_at, frequency }).then(res => {
       this.setState({
         loading: false,
         data: res.data,
