@@ -37,6 +37,7 @@ const authorizationHeaderFromState = getState => {
 };
 
 export default getState => axios.create({
+  baseURL: getState().getIn(['meta', 'api_base_url']),
   headers: {
     ...csrfHeader,
     ...authorizationHeaderFromState(getState),
