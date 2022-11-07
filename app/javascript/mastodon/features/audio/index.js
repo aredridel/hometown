@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { defineMessages, injectIntl } from 'react-intl';
-import { formatTime } from 'mastodon/features/video';
-import Icon from 'mastodon/components/icon';
+import { formatTime } from '../video';
+import Icon from '../../components/icon';
 import classNames from 'classnames';
 import { throttle } from 'lodash';
-import { getPointerPosition, fileNameFromURL } from 'mastodon/features/video';
+import { getPointerPosition, fileNameFromURL } from '../video';
 import { debounce } from 'lodash';
 import Visualizer from './visualizer';
 
@@ -20,7 +20,6 @@ const messages = defineMessages({
 const TICK_SIZE = 10;
 const PADDING   = 180;
 
-export default @injectIntl
 class Audio extends React.PureComponent {
 
   static propTypes = {
@@ -519,3 +518,4 @@ class Audio extends React.PureComponent {
   }
 
 }
+export default injectIntl(Audio);

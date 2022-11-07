@@ -13,10 +13,10 @@ import Video from '../../video';
 import Audio from '../../audio';
 import scheduleIdleTask from '../../ui/util/schedule_idle_task';
 import classNames from 'classnames';
-import Icon from 'mastodon/components/icon';
-import AnimatedNumber from 'mastodon/components/animated_number';
-import PictureInPicturePlaceholder from 'mastodon/components/picture_in_picture_placeholder';
-import EditedTimestamp from 'mastodon/components/edited_timestamp';
+import Icon from '../../../components/icon';
+import AnimatedNumber from '../../../components/animated_number';
+import PictureInPicturePlaceholder from '../../../components/picture_in_picture_placeholder';
+import EditedTimestamp from '../../../components/edited_timestamp';
 
 const messages = defineMessages({
   public_short: { id: 'privacy.public.short', defaultMessage: 'Public' },
@@ -26,7 +26,6 @@ const messages = defineMessages({
   local_only: { id: 'status.local_only', defaultMessage: 'This post is only visible by other users of your instance' },
 });
 
-export default  @injectIntl
 class DetailedStatus extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -277,3 +276,4 @@ class DetailedStatus extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(DetailedStatus);

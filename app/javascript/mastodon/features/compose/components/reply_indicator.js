@@ -6,13 +6,12 @@ import IconButton from '../../../components/icon_button';
 import DisplayName from '../../../components/display_name';
 import { defineMessages, injectIntl } from 'react-intl';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import AttachmentList from 'mastodon/components/attachment_list';
+import AttachmentList from '../../../components/attachment_list';
 
 const messages = defineMessages({
   cancel: { id: 'reply_indicator.cancel', defaultMessage: 'Cancel' },
 });
 
-export default @injectIntl
 class ReplyIndicator extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -69,3 +68,4 @@ class ReplyIndicator extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(ReplyIndicator);

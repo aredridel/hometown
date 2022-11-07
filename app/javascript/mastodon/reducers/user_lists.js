@@ -50,7 +50,7 @@ import {
   DIRECTORY_EXPAND_REQUEST,
   DIRECTORY_EXPAND_SUCCESS,
   DIRECTORY_EXPAND_FAIL,
-} from 'mastodon/actions/directory';
+} from '../actions/directory';
 import { Map as ImmutableMap, List as ImmutableList } from 'immutable';
 
 const initialListState = ImmutableMap({

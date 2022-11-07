@@ -1,5 +1,4 @@
 // Note: You must restart bin/webpack-dev-server for changes to take effect
-
 const webpack = require('webpack');
 const { basename, dirname, join, relative, resolve } = require('path');
 const { sync } = require('glob');
@@ -9,6 +8,7 @@ const extname = require('path-complete-extname');
 const { env, settings, themes, output } = require('./configuration');
 const rules = require('./rules');
 const localePackPaths = require('./generateLocalePacks');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const extensionGlob = `**/*{${settings.extensions.join(',')}}*`;
 const entryPath = join(settings.source_path, settings.source_entry_path);
@@ -85,6 +85,16 @@ module.exports = {
       entrypoints: true,
       writeToDisk: true,
       publicPath: true,
+    }),
+    new HtmlWebpackPlugin({
+      filename: '../index.html',
+      chunksSortMode: 'manual',
+      chunks: [
+        'default',
+        'common',
+        'locale_en',
+        'application',
+      ],
     }),
   ],
 

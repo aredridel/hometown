@@ -12,11 +12,10 @@ import Motion from '../ui/util/optional_motion';
 import spring from 'react-motion/lib/spring';
 import SearchResultsContainer from './containers/search_results_container';
 import { changeComposing } from '../../actions/compose';
-import { openModal } from 'mastodon/actions/modal';
-import elephantUIPlane from '../../../images/elephant_ui_plane.svg';
+import { openModal } from '../../actions/modal';
 import { mascot } from '../../initial_state';
-import Icon from 'mastodon/components/icon';
-import { logOut } from 'mastodon/utils/log_out';
+import Icon from '../../components/icon';
+import { logOut } from '../../utils/log_out';
 import { isMobile } from '../../is_mobile';
 
 const messages = defineMessages({
@@ -56,8 +55,6 @@ if (mascot) {
 </svg>;
 }
 
-export default @connect(mapStateToProps)
-@injectIntl
 class Compose extends React.PureComponent {
 
   static propTypes = {
@@ -167,3 +164,4 @@ class Compose extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(injectIntl(Compose));

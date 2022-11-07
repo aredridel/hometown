@@ -9,10 +9,10 @@ import { addColumn, removeColumn, moveColumn } from '../../actions/columns';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import ColumnSettingsContainer from './containers/column_settings_container';
 import { Link } from 'react-router-dom';
-import { fetchAnnouncements, toggleShowAnnouncements } from 'mastodon/actions/announcements';
-import AnnouncementsContainer from 'mastodon/features/getting_started/containers/announcements_container';
+import { fetchAnnouncements, toggleShowAnnouncements } from '../../actions/announcements';
+import AnnouncementsContainer from '../../features/getting_started/containers/announcements_container';
 import classNames from 'classnames';
-import IconWithBadge from 'mastodon/components/icon_with_badge';
+import IconWithBadge from '../../components/icon_with_badge';
 
 const messages = defineMessages({
   title: { id: 'column.home', defaultMessage: 'Home' },
@@ -28,8 +28,6 @@ const mapStateToProps = state => ({
   showAnnouncements: state.getIn(['announcements', 'show']),
 });
 
-export default @connect(mapStateToProps)
-@injectIntl
 class HomeTimeline extends React.PureComponent {
 
   static propTypes = {
@@ -160,3 +158,4 @@ class HomeTimeline extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(injectIntl(HomeTimeline));

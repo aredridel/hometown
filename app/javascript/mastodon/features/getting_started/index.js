@@ -8,11 +8,11 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import { me, showTrends } from '../../initial_state';
-import { fetchFollowRequests } from 'mastodon/actions/accounts';
+import { fetchFollowRequests } from '../../actions/accounts';
 import { List as ImmutableList } from 'immutable';
 import NavigationContainer from '../compose/containers/navigation_container';
-import Icon from 'mastodon/components/icon';
-import LinkFooter from 'mastodon/features/ui/components/link_footer';
+import Icon from '../../components/icon';
+import LinkFooter from '../../features/ui/components/link_footer';
 import TrendsContainer from './containers/trends_container';
 
 const messages = defineMessages({
@@ -60,8 +60,6 @@ const badgeDisplay = (number, limit) => {
 
 const NAVIGATION_PANEL_BREAKPOINT = 600 + (285 * 2) + (10 * 2);
 
-export default @connect(mapStateToProps, mapDispatchToProps)
-@injectIntl
 class GettingStarted extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -180,3 +178,4 @@ class GettingStarted extends ImmutablePureComponent {
   }
 
 }
+export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(GettingStarted));

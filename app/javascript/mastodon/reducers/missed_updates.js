@@ -1,6 +1,6 @@
 import { Map as ImmutableMap } from 'immutable';
-import { NOTIFICATIONS_UPDATE } from 'mastodon/actions/notifications';
-import { APP_FOCUS, APP_UNFOCUS } from 'mastodon/actions/app';
+import { NOTIFICATIONS_UPDATE } from '../actions/notifications';
+import { APP_FOCUS, APP_UNFOCUS } from '../actions/app';
 
 const initialState = ImmutableMap({
   focused: true,

@@ -4,21 +4,20 @@ import ImmutablePureComponent from 'react-immutable-pure-component';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import { fetchSuggestions } from 'mastodon/actions/suggestions';
-import { changeSetting, saveSettings } from 'mastodon/actions/settings';
-import { requestBrowserPermission } from 'mastodon/actions/notifications';
-import { markAsPartial } from 'mastodon/actions/timelines';
-import Column from 'mastodon/features/ui/components/column';
+import { fetchSuggestions } from '../../actions/suggestions';
+import { changeSetting, saveSettings } from '../../actions/settings';
+import { requestBrowserPermission } from '../../actions/notifications';
+import { markAsPartial } from '../../actions/timelines';
+import Column from '../../features/ui/components/column';
 import Account from './components/account';
-import Logo from 'mastodon/components/logo';
-import Button from 'mastodon/components/button';
+import Logo from '../../components/logo';
+import Button from '../../components/button';
 
 const mapStateToProps = state => ({
   suggestions: state.getIn(['suggestions', 'items']),
   isLoading: state.getIn(['suggestions', 'isLoading']),
 });
 
-export default @connect(mapStateToProps)
 class FollowRecommendations extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -105,3 +104,4 @@ class FollowRecommendations extends ImmutablePureComponent {
   }
 
 }
+export default connect(mapStateToProps)(FollowRecommendations);

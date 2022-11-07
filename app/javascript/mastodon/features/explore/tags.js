@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { ImmutableHashtag as Hashtag } from 'mastodon/components/hashtag';
-import LoadingIndicator from 'mastodon/components/loading_indicator';
+import { ImmutableHashtag as Hashtag } from '../../components/hashtag';
+import LoadingIndicator from '../../components/loading_indicator';
 import { connect } from 'react-redux';
-import { fetchTrendingHashtags } from 'mastodon/actions/trends';
+import { fetchTrendingHashtags } from '../../actions/trends';
 
 const mapStateToProps = state => ({
   hashtags: state.getIn(['trends', 'tags', 'items']),
   isLoadingHashtags: state.getIn(['trends', 'tags', 'isLoading']),
 });
 
-export default @connect(mapStateToProps)
 class Tags extends React.PureComponent {
 
   static propTypes = {
@@ -38,3 +37,4 @@ class Tags extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(Tags);

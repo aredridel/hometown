@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import SearchContainer from 'mastodon/features/compose/containers/search_container';
-import ComposeFormContainer from 'mastodon/features/compose/containers/compose_form_container';
-import NavigationContainer from 'mastodon/features/compose/containers/navigation_container';
+import SearchContainer from '../../../features/compose/containers/search_container';
+import ComposeFormContainer from '../../../features/compose/containers/compose_form_container';
+import NavigationContainer from '../../../features/compose/containers/navigation_container';
 import LinkFooter from './link_footer';
-import { changeComposing } from 'mastodon/actions/compose';
+import { changeComposing } from '../../../actions/compose';
 
-export default @connect()
 class ComposePanel extends React.PureComponent {
 
   static propTypes = {
@@ -34,3 +33,4 @@ class ComposePanel extends React.PureComponent {
   }
 
 }
+export default connect()(ComposePanel);

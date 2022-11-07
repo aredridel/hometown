@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import StatusContent from 'mastodon/components/status_content';
-import AttachmentList from 'mastodon/components/attachment_list';
+import StatusContent from '../../../components/status_content';
+import AttachmentList from '../../../components/attachment_list';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
-import DropdownMenuContainer from 'mastodon/containers/dropdown_menu_container';
-import AvatarComposite from 'mastodon/components/avatar_composite';
-import Permalink from 'mastodon/components/permalink';
-import IconButton from 'mastodon/components/icon_button';
-import RelativeTimestamp from 'mastodon/components/relative_timestamp';
+import DropdownMenuContainer from '../../../containers/dropdown_menu_container';
+import AvatarComposite from '../../../components/avatar_composite';
+import Permalink from '../../../components/permalink';
+import IconButton from '../../../components/icon_button';
+import RelativeTimestamp from '../../../components/relative_timestamp';
 import { HotKeys } from 'react-hotkeys';
-import { autoPlayGif } from 'mastodon/initial_state';
+import { autoPlayGif } from '../../../initial_state';
 import classNames from 'classnames';
 
 const messages = defineMessages({
@@ -24,7 +24,6 @@ const messages = defineMessages({
   unmuteConversation: { id: 'status.unmute_conversation', defaultMessage: 'Unmute conversation' },
 });
 
-export default @injectIntl
 class Conversation extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -198,3 +197,4 @@ class Conversation extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(Conversation);

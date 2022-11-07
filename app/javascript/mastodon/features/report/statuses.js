@@ -2,18 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
-import StatusCheckBox from 'mastodon/features/report/containers/status_check_box_container';
+import StatusCheckBox from '../../features/report/containers/status_check_box_container';
 import { OrderedSet } from 'immutable';
 import { FormattedMessage } from 'react-intl';
-import Button from 'mastodon/components/button';
-import LoadingIndicator from 'mastodon/components/loading_indicator';
+import Button from '../../components/button';
+import LoadingIndicator from '../../components/loading_indicator';
 
 const mapStateToProps = (state, { accountId }) => ({
   availableStatusIds: OrderedSet(state.getIn(['timelines', `account:${accountId}:with_replies`, 'items'])),
   isLoading: state.getIn(['timelines', `account:${accountId}:with_replies`, 'isLoading']),
 });
 
-export default @connect(mapStateToProps)
 class Statuses extends React.PureComponent {
 
   static propTypes = {
@@ -59,3 +58,4 @@ class Statuses extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(Statuses);

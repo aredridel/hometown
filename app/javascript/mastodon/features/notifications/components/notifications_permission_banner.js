@@ -1,9 +1,9 @@
 import React from 'react';
-import Icon from 'mastodon/components/icon';
-import Button from 'mastodon/components/button';
-import IconButton from 'mastodon/components/icon_button';
-import { requestBrowserPermission } from 'mastodon/actions/notifications';
-import { changeSetting } from 'mastodon/actions/settings';
+import Icon from '../../../components/icon';
+import Button from '../../../components/button';
+import IconButton from '../../../components/icon_button';
+import { requestBrowserPermission } from '../../../actions/notifications';
+import { changeSetting } from '../../../actions/settings';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
@@ -12,8 +12,6 @@ const messages = defineMessages({
   close: { id: 'lightbox.close', defaultMessage: 'Close' },
 });
 
-export default @connect()
-@injectIntl
 class NotificationsPermissionBanner extends React.PureComponent {
 
   static propTypes = {
@@ -46,3 +44,4 @@ class NotificationsPermissionBanner extends React.PureComponent {
   }
 
 }
+export default connect()(injectIntl(NotificationsPermissionBanner));

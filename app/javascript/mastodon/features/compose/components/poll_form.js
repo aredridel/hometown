@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
-import IconButton from 'mastodon/components/icon_button';
-import Icon from 'mastodon/components/icon';
-import AutosuggestInput from 'mastodon/components/autosuggest_input';
+import IconButton from '../../../components/icon_button';
+import Icon from '../../../components/icon';
+import AutosuggestInput from '../../../components/autosuggest_input';
 import classNames from 'classnames';
 
 const messages = defineMessages({
@@ -20,8 +20,7 @@ const messages = defineMessages({
   days: { id: 'intervals.full.days', defaultMessage: '{number, plural, one {# day} other {# days}}' },
 });
 
-@injectIntl
-class Option extends React.PureComponent {
+class Option_ extends React.PureComponent {
 
   static propTypes = {
     title: PropTypes.string.isRequired,
@@ -109,9 +108,8 @@ class Option extends React.PureComponent {
   }
 
 }
+const Option = injectIntl(Option_);
 
-export default
-@injectIntl
 class PollForm extends ImmutablePureComponent {
 
   static propTypes = {
@@ -175,3 +173,4 @@ class PollForm extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(PollForm);

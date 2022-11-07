@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Video from 'mastodon/features/video';
-import Audio from 'mastodon/features/audio';
-import { removePictureInPicture } from 'mastodon/actions/picture_in_picture';
+import Video from '../video';
+import Audio from '../audio';
+import { removePictureInPicture } from '../../actions/picture_in_picture';
 import Header from './components/header';
 import Footer from './components/footer';
 
@@ -11,7 +11,6 @@ const mapStateToProps = state => ({
   ...state.get('picture_in_picture'),
 });
 
-export default @connect(mapStateToProps)
 class PictureInPicture extends React.Component {
 
   static propTypes = {
@@ -83,3 +82,4 @@ class PictureInPicture extends React.Component {
   }
 
 }
+export default connect(mapStateToProps)(PictureInPicture);

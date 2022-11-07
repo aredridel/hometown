@@ -4,12 +4,12 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import Motion from 'mastodon/features/ui/util/optional_motion';
+import Motion from '../features/ui/util/optional_motion';
 import spring from 'react-motion/lib/spring';
 import escapeTextContentForBrowser from 'escape-html';
-import emojify from 'mastodon/features/emoji/emoji';
+import emojify from '../features/emoji/emoji';
 import RelativeTimestamp from './relative_timestamp';
-import Icon from 'mastodon/components/icon';
+import Icon from '../components/icon';
 
 const messages = defineMessages({
   closed: {
@@ -31,7 +31,6 @@ const makeEmojiMap = record => record.get('emojis').reduce((obj, emoji) => {
   return obj;
 }, {});
 
-export default @injectIntl
 class Poll extends ImmutablePureComponent {
 
   static propTypes = {
@@ -227,3 +226,4 @@ class Poll extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(Poll);

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import StatusContent from 'mastodon/components/status_content';
-import Avatar from 'mastodon/components/avatar';
-import DisplayName from 'mastodon/components/display_name';
-import RelativeTimestamp from 'mastodon/components/relative_timestamp';
+import StatusContent from '../../../components/status_content';
+import Avatar from '../../../components/avatar';
+import DisplayName from '../../../components/display_name';
+import RelativeTimestamp from '../../../components/relative_timestamp';
 import Option from './option';
-import MediaAttachments from 'mastodon/components/media_attachments';
+import MediaAttachments from '../../../components/media_attachments';
 
 export default class StatusCheckBox extends React.PureComponent {
 

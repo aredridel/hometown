@@ -12,10 +12,10 @@ import ColumnBackButton from '../../components/column_back_button';
 import { List as ImmutableList } from 'immutable';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import { FormattedMessage } from 'react-intl';
-import MissingIndicator from 'mastodon/components/missing_indicator';
-import TimelineHint from 'mastodon/components/timeline_hint';
-import { me } from 'mastodon/initial_state';
-import { connectTimeline, disconnectTimeline } from 'mastodon/actions/timelines';
+import MissingIndicator from '../../components/missing_indicator';
+import TimelineHint from '../../components/timeline_hint';
+import { me } from '../../initial_state';
+import { connectTimeline, disconnectTimeline } from '../../actions/timelines';
 
 const emptyList = ImmutableList();
 
@@ -52,7 +52,6 @@ RemoteHint.propTypes = {
   url: PropTypes.string.isRequired,
 };
 
-export default @connect(mapStateToProps)
 class AccountTimeline extends ImmutablePureComponent {
 
   static propTypes = {
@@ -184,3 +183,4 @@ class AccountTimeline extends ImmutablePureComponent {
   }
 
 }
+export default connect(mapStateToProps)(AccountTimeline);

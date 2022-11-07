@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Story from './components/story';
-import LoadingIndicator from 'mastodon/components/loading_indicator';
+import LoadingIndicator from '../../components/loading_indicator';
 import { connect } from 'react-redux';
-import { fetchTrendingLinks } from 'mastodon/actions/trends';
+import { fetchTrendingLinks } from '../../actions/trends';
 
 const mapStateToProps = state => ({
   links: state.getIn(['trends', 'links', 'items']),
   isLoading: state.getIn(['trends', 'links', 'isLoading']),
 });
 
-export default @connect(mapStateToProps)
 class Links extends React.PureComponent {
 
   static propTypes = {
@@ -46,3 +45,4 @@ class Links extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(Links);

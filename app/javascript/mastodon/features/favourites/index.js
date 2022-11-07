@@ -9,7 +9,7 @@ import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import AccountContainer from '../../containers/account_container';
 import Column from '../ui/components/column';
 import ScrollableList from '../../components/scrollable_list';
-import Icon from 'mastodon/components/icon';
+import Icon from '../../components/icon';
 import ColumnHeader from '../../components/column_header';
 
 const messages = defineMessages({
@@ -20,8 +20,6 @@ const mapStateToProps = (state, props) => ({
   accountIds: state.getIn(['user_lists', 'favourited_by', props.params.statusId]),
 });
 
-export default @connect(mapStateToProps)
-@injectIntl
 class Favourites extends ImmutablePureComponent {
 
   static propTypes = {
@@ -85,3 +83,4 @@ class Favourites extends ImmutablePureComponent {
   }
 
 }
+export default connect(mapStateToProps)(injectIntl(Favourites));

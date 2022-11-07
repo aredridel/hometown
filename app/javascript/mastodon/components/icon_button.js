@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon from 'mastodon/components/icon';
-import AnimatedNumber from 'mastodon/components/animated_number';
+import Icon from '../components/icon';
+import AnimatedNumber from '../components/animated_number';
 
 export default class IconButton extends React.PureComponent {
 

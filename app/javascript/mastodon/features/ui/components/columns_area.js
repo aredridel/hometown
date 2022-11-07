@@ -8,7 +8,7 @@ import ReactSwipeableViews from 'react-swipeable-views';
 import TabsBar, { links, getIndex, getLink } from './tabs_bar';
 import { Link } from 'react-router-dom';
 
-import { disableSwiping } from 'mastodon/initial_state';
+import { disableSwiping } from '../../../initial_state';
 
 import BundleContainer from '../containers/bundle_container';
 import ColumnLoading from './column_loading';
@@ -27,7 +27,7 @@ import {
   ListTimeline,
   Directory,
 } from '../../ui/util/async-components';
-import Icon from 'mastodon/components/icon';
+import Icon from '../../../components/icon';
 import ComposePanel from './compose_panel';
 import NavigationPanel from './navigation_panel';
 
@@ -55,7 +55,6 @@ const messages = defineMessages({
 
 const shouldHideFAB = path => path.match(/^\/statuses\/|^\/@[^/]+\/\d+|^\/publish|^\/explore|^\/getting-started|^\/start/);
 
-export default @(component => injectIntl(component, { withRef: true }))
 class ColumnsArea extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -269,3 +268,5 @@ class ColumnsArea extends ImmutablePureComponent {
   }
 
 }
+
+export default injectIntl(ColumnsArea, { withRef: true });

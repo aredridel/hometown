@@ -2,19 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
-import { lookupAccount, fetchAccount } from 'mastodon/actions/accounts';
+import { lookupAccount, fetchAccount } from '../../actions/accounts';
 import { expandAccountMediaTimeline } from '../../actions/timelines';
-import LoadingIndicator from 'mastodon/components/loading_indicator';
+import LoadingIndicator from '../../components/loading_indicator';
 import Column from '../ui/components/column';
-import ColumnBackButton from 'mastodon/components/column_back_button';
+import ColumnBackButton from '../../components/column_back_button';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import { getAccountGallery } from 'mastodon/selectors';
+import { getAccountGallery } from '../../selectors';
 import MediaItem from './components/media_item';
 import HeaderContainer from '../account_timeline/containers/header_container';
-import ScrollContainer from 'mastodon/containers/scroll_container';
-import LoadMore from 'mastodon/components/load_more';
-import MissingIndicator from 'mastodon/components/missing_indicator';
-import { openModal } from 'mastodon/actions/modal';
+import ScrollContainer from '../../containers/scroll_container';
+import LoadMore from '../../components/load_more';
+import MissingIndicator from '../../components/missing_indicator';
+import { openModal } from '../../actions/modal';
 import { FormattedMessage } from 'react-intl';
 
 const mapStateToProps = (state, { params: { acct, id } }) => {
@@ -59,7 +59,6 @@ class LoadMoreMedia extends ImmutablePureComponent {
 
 }
 
-export default @connect(mapStateToProps)
 class AccountGallery extends ImmutablePureComponent {
 
   static propTypes = {
@@ -225,3 +224,4 @@ class AccountGallery extends ImmutablePureComponent {
   }
 
 }
+export default connect(mapStateToProps)(AccountGallery);

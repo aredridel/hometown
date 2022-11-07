@@ -2,14 +2,14 @@ import React from 'react';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Column from 'mastodon/components/column';
-import ColumnHeader from 'mastodon/components/column_header';
+import Column from '../../components/column';
+import ColumnHeader from '../../components/column_header';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import Links from './links';
 import Tags from './tags';
 import Statuses from './statuses';
 import Suggestions from './suggestions';
-import Search from 'mastodon/features/compose/containers/search_container';
+import Search from '../../features/compose/containers/search_container';
 import SearchResults from './results';
 
 const messages = defineMessages({
@@ -22,8 +22,6 @@ const mapStateToProps = state => ({
   isSearching: state.getIn(['search', 'submitted']),
 });
 
-export default @connect(mapStateToProps)
-@injectIntl
 class Explore extends React.PureComponent {
 
   static contextTypes = {
@@ -89,3 +87,4 @@ class Explore extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(injectIntl(Explore));

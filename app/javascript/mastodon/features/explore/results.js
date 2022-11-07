@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { expandSearch } from 'mastodon/actions/search';
-import Account from 'mastodon/containers/account_container';
-import Status from 'mastodon/containers/status_container';
-import { ImmutableHashtag as Hashtag } from 'mastodon/components/hashtag';
+import { expandSearch } from '../../actions/search';
+import Account from '../../containers/account_container';
+import Status from '../../containers/status_container';
+import { ImmutableHashtag as Hashtag } from '../../components/hashtag';
 import { List as ImmutableList } from 'immutable';
-import LoadMore from 'mastodon/components/load_more';
-import LoadingIndicator from 'mastodon/components/loading_indicator';
+import LoadMore from '../../components/load_more';
+import LoadingIndicator from '../../components/loading_indicator';
 
 const mapStateToProps = state => ({
   isLoading: state.getIn(['search', 'isLoading']),
@@ -36,7 +36,6 @@ const renderStatuses = (results, onLoadMore) => appendLoadMore('statuses', resul
   <Status key={`status-${item}`} id={item} />
 )), onLoadMore);
 
-export default @connect(mapStateToProps)
 class Results extends React.PureComponent {
 
   static propTypes = {
@@ -111,3 +110,4 @@ class Results extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(Results);

@@ -5,7 +5,7 @@ import Overlay from 'react-overlays/lib/Overlay';
 import Motion from '../../ui/util/optional_motion';
 import spring from 'react-motion/lib/spring';
 import { searchEnabled } from '../../../initial_state';
-import Icon from 'mastodon/components/icon';
+import Icon from '../../../components/icon';
 
 const messages = defineMessages({
   placeholder: { id: 'search.placeholder', defaultMessage: 'Search' },
@@ -44,7 +44,6 @@ class SearchPopout extends React.PureComponent {
 
 }
 
-export default @injectIntl
 class Search extends React.PureComponent {
 
   static contextTypes = {
@@ -148,3 +147,4 @@ class Search extends React.PureComponent {
   }
 
 }
+export default injectIntl(Search);

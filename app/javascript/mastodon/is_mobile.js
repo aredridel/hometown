@@ -1,5 +1,5 @@
 import { supportsPassiveEvents } from 'detect-passive-events';
-import { forceSingleColumn } from 'mastodon/initial_state';
+import { forceSingleColumn } from './initial_state';
 
 const LAYOUT_BREAKPOINT = 630;
 

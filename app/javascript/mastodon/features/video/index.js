@@ -6,8 +6,8 @@ import { throttle, debounce } from 'lodash';
 import classNames from 'classnames';
 import { isFullscreen, requestFullscreen, exitFullscreen } from '../ui/util/fullscreen';
 import { displayMedia, useBlurhash } from '../../initial_state';
-import Icon from 'mastodon/components/icon';
-import Blurhash from 'mastodon/components/blurhash';
+import Icon from '../../components/icon';
+import Blurhash from '../../components/blurhash';
 
 const messages = defineMessages({
   play: { id: 'video.play', defaultMessage: 'Play' },
@@ -94,7 +94,6 @@ export const fileNameFromURL = str => {
   return pathname.slice(index + 1);
 };
 
-export default @injectIntl
 class Video extends React.PureComponent {
 
   static propTypes = {
@@ -652,3 +651,4 @@ class Video extends React.PureComponent {
   }
 
 }
+export default injectIntl(Video);

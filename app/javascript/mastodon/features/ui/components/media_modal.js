@@ -2,17 +2,17 @@ import React from 'react';
 import ReactSwipeableViews from 'react-swipeable-views';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
-import Video from 'mastodon/features/video';
+import Video from '../../../features/video';
 import classNames from 'classnames';
 import { defineMessages, injectIntl } from 'react-intl';
-import IconButton from 'mastodon/components/icon_button';
+import IconButton from '../../../components/icon_button';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import ImageLoader from './image_loader';
-import Icon from 'mastodon/components/icon';
-import GIFV from 'mastodon/components/gifv';
-import { disableSwiping } from 'mastodon/initial_state';
-import Footer from 'mastodon/features/picture_in_picture/components/footer';
-import { getAverageFromBlurhash } from 'mastodon/blurhash';
+import Icon from '../../../components/icon';
+import GIFV from '../../../components/gifv';
+import { disableSwiping } from '../../../initial_state';
+import Footer from '../../../features/picture_in_picture/components/footer';
+import { getAverageFromBlurhash } from '../../../blurhash';
 
 const messages = defineMessages({
   close: { id: 'lightbox.close', defaultMessage: 'Close' },
@@ -20,7 +20,6 @@ const messages = defineMessages({
   next: { id: 'lightbox.next', defaultMessage: 'Next' },
 });
 
-export default @injectIntl
 class MediaModal extends ImmutablePureComponent {
 
   static propTypes = {
@@ -248,3 +247,4 @@ class MediaModal extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(MediaModal);

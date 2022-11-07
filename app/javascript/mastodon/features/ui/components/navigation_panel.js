@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import Icon from 'mastodon/components/icon';
-import { showTrends } from 'mastodon/initial_state';
+import Icon from '../../../components/icon';
+import { showTrends } from '../../../initial_state';
 import NotificationsCounterIcon from './notifications_counter_icon';
 import FollowRequestsNavLink from './follow_requests_nav_link';
 import ListPanel from './list_panel';
-import TrendsContainer from 'mastodon/features/getting_started/containers/trends_container';
+import TrendsContainer from '../../../features/getting_started/containers/trends_container';
 
 const NavigationPanel = () => (
   <div className='navigation-panel'>

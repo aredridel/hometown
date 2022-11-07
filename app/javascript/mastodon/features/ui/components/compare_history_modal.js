@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import { closeModal } from 'mastodon/actions/modal';
-import emojify from 'mastodon/features/emoji/emoji';
+import { closeModal } from '../../../actions/modal';
+import emojify from '../../../features/emoji/emoji';
 import escapeTextContentForBrowser from 'escape-html';
-import InlineAccount from 'mastodon/components/inline_account';
-import IconButton from 'mastodon/components/icon_button';
-import RelativeTimestamp from 'mastodon/components/relative_timestamp';
-import MediaAttachments from 'mastodon/components/media_attachments';
+import InlineAccount from '../../../components/inline_account';
+import IconButton from '../../../components/icon_button';
+import RelativeTimestamp from '../../../components/relative_timestamp';
+import MediaAttachments from '../../../components/media_attachments';
 
 const mapStateToProps = (state, { statusId }) => ({
   versions: state.getIn(['history', statusId, 'items']),
@@ -23,7 +23,6 @@ const mapDispatchToProps = dispatch => ({
 
 });
 
-export default @connect(mapStateToProps, mapDispatchToProps)
 class CompareHistoryModal extends React.PureComponent {
 
   static propTypes = {
@@ -97,3 +96,4 @@ class CompareHistoryModal extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps, mapDispatchToProps)(CompareHistoryModal);

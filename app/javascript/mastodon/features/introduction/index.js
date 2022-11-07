@@ -9,7 +9,7 @@ import screenHello from '../../../images/screen_hello.svg';
 import screenFederation from '../../../images/screen_federation.svg';
 import screenInteractions from '../../../images/screen_interactions.svg';
 import logoTransparent from '../../../images/logo_transparent.svg';
-import { disableSwiping } from 'mastodon/initial_state';
+import { disableSwiping } from '../../initial_state';
 
 const FrameWelcome = ({ domain, onNext }) => (
   <div className='introduction__frame'>
@@ -99,7 +99,6 @@ FrameInteractions.propTypes = {
   onNext: PropTypes.func.isRequired,
 };
 
-export default @connect(state => ({ domain: state.getIn(['meta', 'domain']) }))
 class Introduction extends React.PureComponent {
 
   static propTypes = {
@@ -195,3 +194,4 @@ class Introduction extends React.PureComponent {
   }
 
 }
+export default connect(state => ({ domain: state.getIn(['meta', 'domain']) }))(Introduction);

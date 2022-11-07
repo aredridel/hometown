@@ -1,4 +1,4 @@
-import { RULES_FETCH_SUCCESS } from 'mastodon/actions/rules';
+import { RULES_FETCH_SUCCESS } from '../actions/rules';
 import { List as ImmutableList, fromJS } from 'immutable';
 
 const initialState = ImmutableList();

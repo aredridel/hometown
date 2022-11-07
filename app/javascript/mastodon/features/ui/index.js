@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import NotificationsContainer from './containers/notifications_container';
 import LoadingBarContainer from './containers/loading_bar_container';
 import ModalContainer from './containers/modal_container';
-import { layoutFromWindow } from 'mastodon/is_mobile';
+import { layoutFromWindow } from '../../is_mobile';
 import { debounce } from 'lodash';
 import { uploadCompose, resetCompose, changeComposeSpoilerness } from '../../actions/compose';
 import { expandHomeTimeline } from '../../actions/timelines';
@@ -16,13 +16,13 @@ import { expandNotifications } from '../../actions/notifications';
 import { fetchFilters } from '../../actions/filters';
 import { fetchRules } from '../../actions/rules';
 import { clearHeight } from '../../actions/height_cache';
-import { focusApp, unfocusApp, changeLayout } from 'mastodon/actions/app';
-import { synchronouslySubmitMarkers, submitMarkers, fetchMarkers } from 'mastodon/actions/markers';
+import { focusApp, unfocusApp, changeLayout } from '../../actions/app';
+import { synchronouslySubmitMarkers, submitMarkers, fetchMarkers } from '../../actions/markers';
 import { WrappedSwitch, WrappedRoute } from './util/react_router_helpers';
 import UploadArea from './components/upload_area';
 import ColumnsAreaContainer from './containers/columns_area_container';
 import DocumentTitle from './components/document_title';
-import PictureInPicture from 'mastodon/features/picture_in_picture';
+import PictureInPicture from '../../features/picture_in_picture';
 import {
   Compose,
   Status,
@@ -55,7 +55,7 @@ import {
   FollowRecommendations,
 } from './util/async-components';
 import { me } from '../../initial_state';
-import { closeOnboarding, INTRODUCTION_VERSION } from 'mastodon/actions/onboarding';
+import { closeOnboarding, INTRODUCTION_VERSION } from '../../actions/onboarding';
 
 // Dummy import, to make sure that <Status /> ends up in the application bundle.
 // Without this it ends up in ~8 very commonly used bundles.
@@ -202,9 +202,6 @@ class SwitchingColumnsArea extends React.PureComponent {
 
 }
 
-export default @connect(mapStateToProps)
-@injectIntl
-@withRouter
 class UI extends React.PureComponent {
 
   static contextTypes = {
@@ -554,3 +551,4 @@ class UI extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(injectIntl(withRouter(UI)));

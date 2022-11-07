@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import AccountCard from 'mastodon/features/directory/components/account_card';
-import LoadingIndicator from 'mastodon/components/loading_indicator';
+import AccountCard from '../../features/directory/components/account_card';
+import LoadingIndicator from '../../components/loading_indicator';
 import { connect } from 'react-redux';
-import { fetchSuggestions } from 'mastodon/actions/suggestions';
+import { fetchSuggestions } from '../../actions/suggestions';
 
 const mapStateToProps = state => ({
   suggestions: state.getIn(['suggestions', 'items']),
   isLoading: state.getIn(['suggestions', 'isLoading']),
 });
 
-export default @connect(mapStateToProps)
 class Suggestions extends React.PureComponent {
 
   static propTypes = {
@@ -38,3 +37,4 @@ class Suggestions extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(Suggestions);

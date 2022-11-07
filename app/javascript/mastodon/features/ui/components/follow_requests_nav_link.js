@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchFollowRequests } from 'mastodon/actions/accounts';
+import { fetchFollowRequests } from '../../../actions/accounts';
 import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom';
-import IconWithBadge from 'mastodon/components/icon_with_badge';
+import IconWithBadge from '../../../components/icon_with_badge';
 import { List as ImmutableList } from 'immutable';
 import { FormattedMessage } from 'react-intl';
 
@@ -11,8 +11,6 @@ const mapStateToProps = state => ({
   count: state.getIn(['user_lists', 'follow_requests', 'items'], ImmutableList()).size,
 });
 
-export default @withRouter
-@connect(mapStateToProps)
 class FollowRequestsNavLink extends React.Component {
 
   static propTypes = {
@@ -37,3 +35,4 @@ class FollowRequestsNavLink extends React.Component {
   }
 
 }
+export default withRouter(connect(mapStateToProps)(FollowRequestsNavLink));

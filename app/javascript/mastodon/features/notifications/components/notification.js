@@ -4,12 +4,12 @@ import { injectIntl, FormattedMessage, defineMessages } from 'react-intl';
 import { HotKeys } from 'react-hotkeys';
 import PropTypes from 'prop-types';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import { me } from 'mastodon/initial_state';
-import StatusContainer from 'mastodon/containers/status_container';
-import AccountContainer from 'mastodon/containers/account_container';
+import { me } from '../../../initial_state';
+import StatusContainer from '../../../containers/status_container';
+import AccountContainer from '../../../containers/account_container';
 import FollowRequestContainer from '../containers/follow_request_container';
-import Icon from 'mastodon/components/icon';
-import Permalink from 'mastodon/components/permalink';
+import Icon from '../../../components/icon';
+import Permalink from '../../../components/permalink';
 import classNames from 'classnames';
 
 const messages = defineMessages({
@@ -31,7 +31,6 @@ const notificationForScreenReader = (intl, message, timestamp) => {
   return output.join(', ');
 };
 
-export default @injectIntl
 class Notification extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -398,3 +397,4 @@ class Notification extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(Notification);

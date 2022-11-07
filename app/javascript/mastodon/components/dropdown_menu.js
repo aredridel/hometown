@@ -7,7 +7,7 @@ import Motion from '../features/ui/util/optional_motion';
 import spring from 'react-motion/lib/spring';
 import { supportsPassiveEvents } from 'detect-passive-events';
 import classNames from 'classnames';
-import { CircularProgress } from 'mastodon/components/loading_indicator';
+import { CircularProgress } from '../components/loading_indicator';
 
 const listenerOptions = supportsPassiveEvents ? { passive: true } : false;
 let id = 0;

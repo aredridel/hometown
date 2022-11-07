@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from 'mastodon/components/icon';
-import { removePictureInPicture } from 'mastodon/actions/picture_in_picture';
+import Icon from '../components/icon';
+import { removePictureInPicture } from '../actions/picture_in_picture';
 import { connect } from 'react-redux';
 import { debounce } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 
-export default @connect()
 class PictureInPicturePlaceholder extends React.PureComponent {
 
   static propTypes = {
@@ -67,3 +66,4 @@ class PictureInPicturePlaceholder extends React.PureComponent {
   }
 
 }
+export default connect(PictureInPicturePlaceholder);

@@ -46,7 +46,7 @@ import { initBlockModal } from '../../actions/blocks';
 import { initBoostModal } from '../../actions/boosts';
 import { initReport } from '../../actions/reports';
 import { makeGetStatus, makeGetPictureInPicture } from '../../selectors';
-import ScrollContainer from 'mastodon/containers/scroll_container';
+import ScrollContainer from '../../containers/scroll_container';
 import ColumnBackButton from '../../components/column_back_button';
 import ColumnHeader from '../../components/column_header';
 import StatusContainer from '../../containers/status_container';
@@ -57,7 +57,7 @@ import { HotKeys } from 'react-hotkeys';
 import { boostModal, deleteModal } from '../../initial_state';
 import { attachFullscreenListener, detachFullscreenListener, isFullscreen } from '../ui/util/fullscreen';
 import { textForScreenReader, defaultMediaVisibility } from '../../components/status';
-import Icon from 'mastodon/components/icon';
+import Icon from '../../components/icon';
 
 const messages = defineMessages({
   deleteConfirm: { id: 'confirmations.delete.confirm', defaultMessage: 'Delete' },
@@ -154,8 +154,6 @@ const makeMapStateToProps = () => {
   return mapStateToProps;
 };
 
-export default @injectIntl
-@connect(makeMapStateToProps)
 class Status extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -597,3 +595,4 @@ class Status extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(connect(makeMapStateToProps)(Status));

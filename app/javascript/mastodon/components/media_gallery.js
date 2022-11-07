@@ -8,7 +8,7 @@ import { isIOS } from '../is_mobile';
 import classNames from 'classnames';
 import { autoPlayGif, cropImages, displayMedia, useBlurhash } from '../initial_state';
 import { debounce } from 'lodash';
-import Blurhash from 'mastodon/components/blurhash';
+import Blurhash from '../components/blurhash';
 
 const messages = defineMessages({
   toggle_visible: { id: 'media_gallery.toggle_visible', defaultMessage: '{number, plural, one {Hide image} other {Hide images}}' },
@@ -220,7 +220,6 @@ class Item extends React.PureComponent {
 
 }
 
-export default @injectIntl
 class MediaGallery extends React.PureComponent {
 
   static propTypes = {
@@ -366,3 +365,4 @@ class MediaGallery extends React.PureComponent {
   }
 
 }
+export default injectIntl(MediaGallery);

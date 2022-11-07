@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getScrollbarWidth } from 'mastodon/utils/scrollbar';
-import Base from 'mastodon/components/modal_root';
+import { getScrollbarWidth } from '../../../utils/scrollbar';
+import Base from '../../../components/modal_root';
 import BundleContainer from '../containers/bundle_container';
 import BundleModalError from './bundle_modal_error';
 import ModalLoading from './modal_loading';
@@ -20,7 +20,7 @@ import {
   ListEditor,
   ListAdder,
   CompareHistoryModal,
-} from 'mastodon/features/ui/util/async-components';
+} from '../../ui/util/async-components';
 
 const MODAL_COMPONENTS = {
   'MEDIA': () => Promise.resolve({ default: MediaModal }),

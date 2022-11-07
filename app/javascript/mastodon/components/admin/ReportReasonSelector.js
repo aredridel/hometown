@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import api from 'mastodon/api';
+import api from '../../api';
 import { injectIntl, defineMessages } from 'react-intl';
 import classNames from 'classnames';
 
@@ -84,7 +84,6 @@ class Rule extends React.PureComponent {
 
 }
 
-export default @injectIntl
 class ReportReasonSelector extends React.PureComponent {
 
   static propTypes = {
@@ -157,3 +156,4 @@ class ReportReasonSelector extends React.PureComponent {
   }
 
 }
+export default injectIntl(ReportReasonSelector);

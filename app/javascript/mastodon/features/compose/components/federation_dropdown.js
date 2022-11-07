@@ -144,8 +144,7 @@ class FederationDropdownMenu extends React.PureComponent {
 
 }
 
-@injectIntl
-export default class FederationDropdown extends React.PureComponent {
+class FederationDropdown extends React.PureComponent {
 
   static propTypes = {
     isUserTouching: PropTypes.func,
@@ -248,3 +247,4 @@ export default class FederationDropdown extends React.PureComponent {
   }
 
 }
+export default injectIntl(FederationDropdown);

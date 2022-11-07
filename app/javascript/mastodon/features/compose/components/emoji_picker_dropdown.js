@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { supportsPassiveEvents } from 'detect-passive-events';
 import { buildCustomEmojis, categoriesFromEmojis } from '../../emoji/emoji';
-import { assetHost } from 'mastodon/utils/config';
+import { assetHost } from '../../../utils/config';
 
 const messages = defineMessages({
   emoji: { id: 'emoji_button.label', defaultMessage: 'Insert emoji' },
@@ -144,8 +144,7 @@ class ModifierPicker extends React.PureComponent {
 
 }
 
-@injectIntl
-class EmojiPickerMenu extends React.PureComponent {
+class EmojiPickerMenu_ extends React.PureComponent {
 
   static propTypes = {
     custom_emojis: ImmutablePropTypes.list,
@@ -307,8 +306,8 @@ class EmojiPickerMenu extends React.PureComponent {
   }
 
 }
+const EmojiPickerMenu = injectIntl(EmojiPickerMenu_);
 
-export default @injectIntl
 class EmojiPickerDropdown extends React.PureComponent {
 
   static propTypes = {
@@ -380,7 +379,7 @@ class EmojiPickerDropdown extends React.PureComponent {
   }
 
   render () {
-    const { intl, onPickEmoji, onSkinTone, skinTone, frequentlyUsedEmojis, button } = this.props;
+    const { intl, onPickEmoji, onSkinTone, skinTone, frequentlyUsedEmojis } = this.props;
     const title = intl.formatMessage(messages.emoji);
     const { active, loading, placement } = this.state;
 
@@ -410,3 +409,4 @@ class EmojiPickerDropdown extends React.PureComponent {
   }
 
 }
+export default injectIntl(EmojiPickerDropdown);

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import StatusList from 'mastodon/components/status_list';
+import StatusList from '../../components/status_list';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { fetchTrendingStatuses, expandTrendingStatuses } from 'mastodon/actions/trends';
+import { fetchTrendingStatuses, expandTrendingStatuses } from '../../actions/trends';
 import { debounce } from 'lodash';
 
 const mapStateToProps = state => ({
@@ -13,7 +13,6 @@ const mapStateToProps = state => ({
   hasMore: !!state.getIn(['status_lists', 'trending', 'next']),
 });
 
-export default @connect(mapStateToProps)
 class Statuses extends React.PureComponent {
 
   static propTypes = {
@@ -55,3 +54,4 @@ class Statuses extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(Statuses);

@@ -4,7 +4,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { debounce } from 'lodash';
 import { isUserTouching } from '../../../is_mobile';
-import Icon from 'mastodon/components/icon';
+import Icon from '../../../components/icon';
 import NotificationsCounterIcon from './notifications_counter_icon';
 
 export const links = [
@@ -24,8 +24,6 @@ export function getLink (index) {
   return links[index].props.to;
 }
 
-export default @injectIntl
-@withRouter
 class TabsBar extends React.PureComponent {
 
   static propTypes = {
@@ -84,3 +82,4 @@ class TabsBar extends React.PureComponent {
   }
 
 }
+export default injectIntl(withRouter(TabsBar));

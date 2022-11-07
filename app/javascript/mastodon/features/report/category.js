@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
-import Button from 'mastodon/components/button';
+import Button from '../../components/button';
 import Option from './components/option';
 
 const messages = defineMessages({
@@ -23,8 +23,6 @@ const mapStateToProps = state => ({
   rules: state.get('rules'),
 });
 
-export default @connect(mapStateToProps)
-@injectIntl
 class Category extends React.PureComponent {
 
   static propTypes = {
@@ -103,3 +101,4 @@ class Category extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(injectIntl(Category));

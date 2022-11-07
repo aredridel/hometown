@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import { connect } from 'react-redux';
-import { makeGetAccount } from 'mastodon/selectors';
-import Avatar from 'mastodon/components/avatar';
-import DisplayName from 'mastodon/components/display_name';
-import Permalink from 'mastodon/components/permalink';
-import IconButton from 'mastodon/components/icon_button';
+import { makeGetAccount } from '../../../selectors';
+import Avatar from '../../../components/avatar';
+import DisplayName from '../../../components/display_name';
+import Permalink from '../../../components/permalink';
+import IconButton from '../../../components/icon_button';
 import { injectIntl, defineMessages } from 'react-intl';
-import { followAccount, unfollowAccount } from 'mastodon/actions/accounts';
+import { followAccount, unfollowAccount } from '../../../actions/accounts';
 
 const messages = defineMessages({
   follow: { id: 'account.follow', defaultMessage: 'Follow' },
@@ -32,8 +32,6 @@ const getFirstSentence = str => {
   return arr[0];
 };
 
-export default @connect(makeMapStateToProps)
-@injectIntl
 class Account extends ImmutablePureComponent {
 
   static propTypes = {
@@ -83,3 +81,4 @@ class Account extends ImmutablePureComponent {
   }
 
 }
+export default connect(makeMapStateToProps)(injectIntl(Account));

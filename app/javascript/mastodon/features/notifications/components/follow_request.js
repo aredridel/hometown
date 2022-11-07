@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
-import Avatar from 'mastodon/components/avatar';
-import DisplayName from 'mastodon/components/display_name';
-import Permalink from 'mastodon/components/permalink';
-import IconButton from 'mastodon/components/icon_button';
+import Avatar from '../../../components/avatar';
+import DisplayName from '../../../components/display_name';
+import Permalink from '../../../components/permalink';
+import IconButton from '../../../components/icon_button';
 import { defineMessages, injectIntl } from 'react-intl';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 
@@ -13,7 +13,6 @@ const messages = defineMessages({
   reject: { id: 'follow_request.reject', defaultMessage: 'Reject' },
 });
 
-export default @injectIntl
 class FollowRequest extends ImmutablePureComponent {
 
   static propTypes = {
@@ -57,3 +56,4 @@ class FollowRequest extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(FollowRequest);

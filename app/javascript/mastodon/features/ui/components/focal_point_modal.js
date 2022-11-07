@@ -7,22 +7,21 @@ import classNames from 'classnames';
 import { changeUploadCompose, uploadThumbnail, onChangeMediaDescription, onChangeMediaFocus } from '../../../actions/compose';
 import { getPointerPosition } from '../../video';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
-import IconButton from 'mastodon/components/icon_button';
-import Button from 'mastodon/components/button';
-import Video from 'mastodon/features/video';
-import Audio from 'mastodon/features/audio';
+import IconButton from '../../../components/icon_button';
+import Button from '../../../components/button';
+import Video from '../../../features/video';
+import Audio from '../../../features/audio';
 import Textarea from 'react-textarea-autosize';
-import UploadProgress from 'mastodon/features/compose/components/upload_progress';
-import CharacterCounter from 'mastodon/features/compose/components/character_counter';
+import UploadProgress from '../../../features/compose/components/upload_progress';
+import CharacterCounter from '../../../features/compose/components/character_counter';
 import { length } from 'stringz';
-import { Tesseract as fetchTesseract } from 'mastodon/features/ui/util/async-components';
-import GIFV from 'mastodon/components/gifv';
-import { me } from 'mastodon/initial_state';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import tesseractCorePath from 'tesseract.js-core/tesseract-core.wasm.js';
+import { Tesseract as fetchTesseract } from '../../../features/ui/util/async-components';
+import GIFV from '../../../components/gifv';
+import { me } from '../../../initial_state';
+//import tesseractCorePath from 'tesseract.js-core/tesseract-core.wasm.js';
 // eslint-disable-next-line import/extensions
 import tesseractWorkerPath from 'tesseract.js/dist/worker.min.js';
-import { assetHost } from 'mastodon/utils/config';
+import { assetHost } from '../../../utils/config';
 
 const messages = defineMessages({
   close: { id: 'lightbox.close', defaultMessage: 'Close' },
@@ -99,8 +98,6 @@ class ImageLoader extends React.PureComponent {
 
 }
 
-export default @connect(mapStateToProps, mapDispatchToProps, null, { forwardRef: true })
-@(component => injectIntl(component, { withRef: true }))
 class FocalPointModal extends ImmutablePureComponent {
 
   static propTypes = {
@@ -212,6 +209,8 @@ class FocalPointModal extends ImmutablePureComponent {
     const { media } = this.props;
 
     this.setState({ detecting: true });
+
+    return async () => {};
 
     fetchTesseract().then(({ createWorker }) => {
       const worker = createWorker({
@@ -415,3 +414,6 @@ class FocalPointModal extends ImmutablePureComponent {
   }
 
 }
+
+const decor = (component => injectIntl(component, { withRef: true }));
+export default connect(mapStateToProps, mapDispatchToProps, null, { forwardRef: true })(decor(FocalPointModal));

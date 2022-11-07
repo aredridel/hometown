@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import { fetchLists } from 'mastodon/actions/lists';
+import { fetchLists } from '../../../actions/lists';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { NavLink, withRouter } from 'react-router-dom';
-import Icon from 'mastodon/components/icon';
+import Icon from '../../../components/icon';
 
 const getOrderedLists = createSelector([state => state.get('lists')], lists => {
   if (!lists) {
@@ -20,8 +20,6 @@ const mapStateToProps = state => ({
   lists: getOrderedLists(state),
 });
 
-export default @withRouter
-@connect(mapStateToProps)
 class ListPanel extends ImmutablePureComponent {
 
   static propTypes = {
@@ -53,3 +51,4 @@ class ListPanel extends ImmutablePureComponent {
   }
 
 }
+export default withRouter(connect(mapStateToProps)(ListPanel));

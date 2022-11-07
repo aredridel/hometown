@@ -27,18 +27,7 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
   const url = new URL(event.request.url);
 
-  if (url.pathname.startsWith('/web/')) {
-    const asyncResponse = fetchRoot();
-    const asyncCache = openWebCache();
-
-    event.respondWith(asyncResponse.then(
-      response => {
-        const clonedResponse = response.clone();
-        asyncCache.then(cache => cache.put('/', clonedResponse)).catch();
-        return response;
-      },
-      () => asyncCache.then(cache => cache.match('/'))));
-  } else if (url.pathname === '/auth/sign_out') {
+  if (url.pathname === '/auth/sign_out') {
     const asyncResponse = fetch(event.request);
     const asyncCache = openWebCache();
 
@@ -52,26 +41,16 @@ self.addEventListener('fetch', function(event) {
 
       return response;
     }));
-  } /* else if (storageFreeable && (ATTACHMENT_HOST ? url.host === ATTACHMENT_HOST : url.pathname.startsWith('/system/'))) {
-    event.respondWith(openSystemCache().then(cache => {
-      return cache.match(event.request.url).then(cached => {
-        if (cached === undefined) {
-          const asyncResponse = invalidOnlyIfCached && event.request.cache === 'only-if-cached' ?
-            fetch(event.request, { cache: 'no-cache' }) : fetch(event.request);
+  } else {
+    const asyncResponse = fetchRoot();
+    const asyncCache = openWebCache();
 
-          return asyncResponse.then(response => {
-            if (response.ok) {
-              cache
-                .put(event.request.url, response.clone())
-                .catch(()=>{}).then(freeStorage()).catch();
-            }
-
-            return response;
-          });
-        }
-
-        return cached;
-      });
-    }));
-  } */
+    event.respondWith(asyncResponse.then(
+      response => {
+        const clonedResponse = response.clone();
+        asyncCache.then(cache => cache.put('/', clonedResponse)).catch();
+        return response;
+      },
+      () => asyncCache.then(cache => cache.match('/'))));
+  }
 });

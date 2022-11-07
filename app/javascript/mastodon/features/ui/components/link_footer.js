@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
-import { invitesEnabled, limitedFederationMode, version, repository, source_url, profile_directory as profileDirectory } from 'mastodon/initial_state';
-import { logOut } from 'mastodon/utils/log_out';
-import { openModal } from 'mastodon/actions/modal';
+import { invitesEnabled, limitedFederationMode, version, repository, source_url, profile_directory as profileDirectory } from '../../../initial_state';
+import { logOut } from '../../../utils/log_out';
+import { openModal } from '../../../actions/modal';
 
 const messages = defineMessages({
   logoutMessage: { id: 'confirmations.logout.message', defaultMessage: 'Are you sure you want to log out?' },
@@ -23,8 +23,6 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
   },
 });
 
-export default @injectIntl
-@connect(null, mapDispatchToProps)
 class LinkFooter extends React.PureComponent {
 
   static propTypes = {
@@ -77,3 +75,4 @@ class LinkFooter extends React.PureComponent {
   }
 
 };
+export default injectIntl(connect(null, mapDispatchToProps)(LinkFooter));

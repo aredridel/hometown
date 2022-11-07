@@ -7,7 +7,7 @@ import Motion from '../../ui/util/optional_motion';
 import spring from 'react-motion/lib/spring';
 import { supportsPassiveEvents } from 'detect-passive-events';
 import classNames from 'classnames';
-import Icon from 'mastodon/components/icon';
+import Icon from '../../../components/icon';
 
 const messages = defineMessages({
   public_short: { id: 'privacy.public.short', defaultMessage: 'Public' },
@@ -148,7 +148,6 @@ class PrivacyDropdownMenu extends React.PureComponent {
 
 }
 
-export default @injectIntl
 class PrivacyDropdown extends React.PureComponent {
 
   static propTypes = {
@@ -286,3 +285,4 @@ class PrivacyDropdown extends React.PureComponent {
   }
 
 }
+export default injectIntl(PrivacyDropdown);

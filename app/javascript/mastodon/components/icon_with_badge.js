@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from 'mastodon/components/icon';
+import Icon from '../components/icon';
 
 const formatNumber = num => num > 40 ? '40+' : num;
 

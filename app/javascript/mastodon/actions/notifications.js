@@ -13,9 +13,9 @@ import { defineMessages } from 'react-intl';
 import { List as ImmutableList } from 'immutable';
 import { unescapeHTML } from '../utils/html';
 import { getFiltersRegex } from '../selectors';
-import { usePendingItems as preferPendingItems } from 'mastodon/initial_state';
-import compareId from 'mastodon/compare_id';
-import { searchTextFromRawStatus } from 'mastodon/actions/importer/normalizer';
+import { usePendingItems as preferPendingItems } from '../initial_state';
+import compareId from '../compare_id';
+import { searchTextFromRawStatus } from './importer/normalizer';
 import { requestNotificationPermission } from '../utils/notifications';
 
 export const NOTIFICATIONS_UPDATE      = 'NOTIFICATIONS_UPDATE';

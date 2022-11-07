@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import ClearColumnButton from './clear_column_button';
 import GrantPermissionButton from './grant_permission_button';
 import SettingToggle from './setting_toggle';
-import { isStaff } from 'mastodon/initial_state';
+import { isStaff } from '../../../initial_state';
 
 export default class ColumnSettings extends React.PureComponent {
 

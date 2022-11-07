@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import Permalink from './permalink';
 import classnames from 'classnames';
-import PollContainer from 'mastodon/containers/poll_container';
-import Icon from 'mastodon/components/icon';
-import { autoPlayGif } from 'mastodon/initial_state';
+import PollContainer from '../containers/poll_container';
+import Icon from '../components/icon';
+import { autoPlayGif } from '../initial_state';
 
 const MAX_HEIGHT = 642; // 20px * 32 (+ 2px padding at the top)
 

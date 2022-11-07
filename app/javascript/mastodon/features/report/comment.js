@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, defineMessages, FormattedMessage } from 'react-intl';
-import Button from 'mastodon/components/button';
+import Button from '../../components/button';
 import Toggle from 'react-toggle';
 
 const messages = defineMessages({
   placeholder: { id: 'report.placeholder', defaultMessage: 'Type or paste additional comments' },
 });
 
-export default @injectIntl
 class Comment extends React.PureComponent {
 
   static propTypes = {
@@ -81,3 +80,4 @@ class Comment extends React.PureComponent {
   }
 
 }
+export default injectIntl(Comment);

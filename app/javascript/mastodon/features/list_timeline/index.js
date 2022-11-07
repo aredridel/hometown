@@ -14,8 +14,8 @@ import { fetchList, deleteList, updateList } from '../../actions/lists';
 import { openModal } from '../../actions/modal';
 import MissingIndicator from '../../components/missing_indicator';
 import LoadingIndicator from '../../components/loading_indicator';
-import Icon from 'mastodon/components/icon';
-import RadioButton from 'mastodon/components/radio_button';
+import Icon from '../../components/icon';
+import RadioButton from '../../components/radio_button';
 
 const messages = defineMessages({
   deleteMessage: { id: 'confirmations.delete_list.message', defaultMessage: 'Are you sure you want to permanently delete this list?' },
@@ -30,8 +30,6 @@ const mapStateToProps = (state, props) => ({
   hasUnread: state.getIn(['timelines', `list:${props.params.id}`, 'unread']) > 0,
 });
 
-export default @connect(mapStateToProps)
-@injectIntl
 class ListTimeline extends React.PureComponent {
 
   static contextTypes = {
@@ -213,3 +211,4 @@ class ListTimeline extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(injectIntl(ListTimeline));
