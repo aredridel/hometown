@@ -13,6 +13,7 @@ import ImmutablePureComponent from 'react-immutable-pure-component';
 import ScrollableList from 'flavours/glitch/components/scrollable_list';
 import { me } from 'flavours/glitch/initial_state';
 import { Helmet } from 'react-helmet';
+import nimbleEmoji from 'emoji-mart/dist-es/components/emoji/nimble-emoji';
 
 const messages = defineMessages({
   heading: { id: 'column.follow_requests', defaultMessage: 'Follow requests' },
@@ -26,8 +27,6 @@ const mapStateToProps = state => ({
   domain: state.getIn(['meta', 'domain']),
 });
 
-export default @connect(mapStateToProps)
-@injectIntl
 class FollowRequests extends ImmutablePureComponent {
 
   static propTypes = {
@@ -98,3 +97,4 @@ class FollowRequests extends ImmutablePureComponent {
   }
 
 }
+export default connect(mapStateToProps)(injectIntl(FollowRequests));

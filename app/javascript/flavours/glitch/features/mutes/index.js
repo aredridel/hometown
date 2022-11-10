@@ -23,8 +23,6 @@ const mapStateToProps = state => ({
   isLoading: state.getIn(['user_lists', 'mutes', 'isLoading'], true),
 });
 
-export default @connect(mapStateToProps)
-@injectIntl
 class Mutes extends ImmutablePureComponent {
 
   static propTypes = {
@@ -82,3 +80,4 @@ class Mutes extends ImmutablePureComponent {
   }
 
 }
+export default connect(mapStateToProps)(injectIntl(Mutes));

@@ -14,7 +14,6 @@ const mapStateToProps = state => ({
   hasMore: !!state.getIn(['status_lists', 'trending', 'next']),
 });
 
-export default @connect(mapStateToProps)
 class Statuses extends React.PureComponent {
 
   static propTypes = {
@@ -62,3 +61,4 @@ class Statuses extends React.PureComponent {
   }
 
 }
+export default onnect(mapStateToProps)(Statuses);

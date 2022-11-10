@@ -21,7 +21,6 @@ import AnimatedNumber from 'flavours/glitch/components/animated_number';
 import PictureInPicturePlaceholder from 'flavours/glitch/components/picture_in_picture_placeholder';
 import EditedTimestamp from 'flavours/glitch/components/edited_timestamp';
 
-export default @injectIntl
 class DetailedStatus extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -323,3 +322,4 @@ class DetailedStatus extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(DetailedStatus);

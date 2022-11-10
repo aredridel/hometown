@@ -16,7 +16,6 @@ const Account = connect(state => ({
   </Permalink>
 ));
 
-export default @withRouter
 class Header extends React.PureComponent {
 
   static contextTypes = {
@@ -61,3 +60,4 @@ class Header extends React.PureComponent {
   }
 
 }
+export default withRouter(Header);

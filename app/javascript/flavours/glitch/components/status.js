@@ -56,7 +56,6 @@ export const defaultMediaVisibility = (status, settings) => {
   return (displayMedia !== 'hide_all' && !status.get('sensitive') || displayMedia === 'show_all');
 }
 
-export default @injectIntl
 class Status extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -814,3 +813,4 @@ class Status extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(Status);

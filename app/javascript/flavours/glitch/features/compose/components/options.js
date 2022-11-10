@@ -83,8 +83,7 @@ const messages = defineMessages({
   },
 });
 
-@connect((state, { name }) => ({ checked: state.getIn(['compose', 'advanced_options', name]) }))
-class ToggleOption extends ImmutablePureComponent {
+class ToggleOption_ extends ImmutablePureComponent {
 
   static propTypes = {
     name: PropTypes.string.isRequired,
@@ -112,8 +111,8 @@ class ToggleOption extends ImmutablePureComponent {
   }
 
 }
+const ToggleOption = connect((state, { name }) => ({ checked: state.getIn(['compose', 'advanced_options', name]) }))(ToggleOption_);
 
-export default @injectIntl
 class ComposerOptions extends ImmutablePureComponent {
 
   static propTypes = {
@@ -335,3 +334,4 @@ class ComposerOptions extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(ComposerOptions);

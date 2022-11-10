@@ -40,7 +40,6 @@ LanguageIcon.propTypes = {
   language: PropTypes.string.isRequired,
 };
 
-export default @injectIntl
 class StatusIcons extends React.PureComponent {
 
   static propTypes = {
@@ -143,3 +142,4 @@ class StatusIcons extends React.PureComponent {
   }
 
 }
+export default injectIntl(StatusIcons);

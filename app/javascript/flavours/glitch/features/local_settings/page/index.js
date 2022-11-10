@@ -31,7 +31,6 @@ const messages = defineMessages({
   pop_in_right: { id: 'settings.pop_in_right', defaultMessage:  'Right' },
 });
 
-export default @injectIntl
 class LocalSettingsPage extends React.PureComponent {
 
   static propTypes = {
@@ -501,3 +500,4 @@ class LocalSettingsPage extends React.PureComponent {
   }
 
 }
+export default injectIntl(LocalSettingsPage);

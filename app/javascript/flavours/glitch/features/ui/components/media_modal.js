@@ -20,7 +20,6 @@ const messages = defineMessages({
   next: { id: 'lightbox.next', defaultMessage: 'Next' },
 });
 
-export default @injectIntl
 class MediaModal extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -250,3 +249,4 @@ class MediaModal extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(MediaModal);

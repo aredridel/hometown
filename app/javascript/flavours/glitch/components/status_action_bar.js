@@ -44,7 +44,6 @@ const messages = defineMessages({
   filter: { id: 'status.filter', defaultMessage: 'Filter this post' },
 });
 
-export default @injectIntl
 class StatusActionBar extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -343,3 +342,4 @@ class StatusActionBar extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(StatusActionBar);

@@ -241,7 +241,6 @@ class Item extends React.PureComponent {
 
 }
 
-export default @injectIntl
 class MediaGallery extends React.PureComponent {
 
   static propTypes = {
@@ -402,3 +401,4 @@ class MediaGallery extends React.PureComponent {
   }
 
 }
+export default injectIntl(MediaGallery);
