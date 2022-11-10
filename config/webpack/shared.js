@@ -1,5 +1,4 @@
 // Note: You must restart bin/webpack-dev-server for changes to take effect
-
 const webpack = require('webpack');
 const { basename, dirname, join, relative, resolve } = require('path');
 const { sync } = require('glob');
@@ -52,6 +51,7 @@ const entries = Object.assign(
   reducePacks(core),
   Object.values(flavours).reduce((map, data) => reducePacks(data, map), {})
 );
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
@@ -111,6 +111,16 @@ module.exports = {
       entrypoints: true,
       writeToDisk: true,
       publicPath: true,
+    }),
+    new HtmlWebpackPlugin({
+      filename: '../index.html',
+      chunksSortMode: 'manual',
+      chunks: [
+        'default',
+        'common',
+        'locale_en',
+        'application',
+      ],
     }),
   ],
 

@@ -72,7 +72,6 @@ const dateFormatOptions = {
   minute: '2-digit',
 };
 
-export default @injectIntl
 class Header extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -383,3 +382,4 @@ class Header extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(Header);

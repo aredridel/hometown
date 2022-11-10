@@ -25,7 +25,6 @@ const messages = defineMessages({
   direct_short: { id: 'privacy.direct.short', defaultMessage: 'Direct' },
 });
 
-export default  @injectIntl
 class DetailedStatus extends ImmutablePureComponent {
 
   static contextTypes = {
@@ -286,3 +285,4 @@ class DetailedStatus extends ImmutablePureComponent {
   }
 
 }
+export default injectIntl(DetailedStatus);

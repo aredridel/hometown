@@ -1,3 +1,3 @@
-require('../styles/mailer.scss');
+// require('../styles/mailer.scss');
 
-require.context('../icons');
+// require.context('../icons');

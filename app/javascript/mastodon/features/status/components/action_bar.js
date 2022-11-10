@@ -45,8 +45,6 @@ const mapStateToProps = (state, { status }) => ({
   relationship: state.getIn(['relationships', status.getIn(['account', 'id'])]),
 });
 
-export default @connect(mapStateToProps)
-@injectIntl
 class ActionBar extends React.PureComponent {
 
   static contextTypes = {
@@ -299,3 +297,4 @@ class ActionBar extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(injectIntl(ActionBar));

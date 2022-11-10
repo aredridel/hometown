@@ -30,8 +30,6 @@ const mapStateToProps = state => ({
   showAnnouncements: state.getIn(['announcements', 'show']),
 });
 
-export default @connect(mapStateToProps)
-@injectIntl
 class HomeTimeline extends React.PureComponent {
 
   static contextTypes = {
@@ -175,3 +173,4 @@ class HomeTimeline extends React.PureComponent {
   }
 
 }
+export default connect(mapStateToProps)(injectIntl(HomeTimeline));

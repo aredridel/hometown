@@ -31,8 +31,6 @@ const mapDispatchToProps = (dispatch, { accountId }) => ({
   onAdd: () => dispatch(addToListEditor(accountId)),
 });
 
-export default @connect(makeMapStateToProps, mapDispatchToProps)
-@injectIntl
 class Account extends ImmutablePureComponent {
 
   static propTypes = {
@@ -75,3 +73,4 @@ class Account extends ImmutablePureComponent {
   }
 
 }
+export default connect(makeMapStateToProps, mapDispatchToProps)(injectIntl(Account));

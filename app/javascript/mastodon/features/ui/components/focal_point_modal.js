@@ -99,8 +99,6 @@ class ImageLoader extends React.PureComponent {
 
 }
 
-export default @connect(mapStateToProps, mapDispatchToProps, null, { forwardRef: true })
-@(component => injectIntl(component, { withRef: true }))
 class FocalPointModal extends ImmutablePureComponent {
 
   static propTypes = {
@@ -212,6 +210,8 @@ class FocalPointModal extends ImmutablePureComponent {
     const { media } = this.props;
 
     this.setState({ detecting: true });
+
+    return async () => {};
 
     fetchTesseract().then(({ createWorker }) => {
       const worker = createWorker({
@@ -426,3 +426,6 @@ class FocalPointModal extends ImmutablePureComponent {
   }
 
 }
+
+const decor = (component => injectIntl(component, { withRef: true }));
+export default connect(mapStateToProps, mapDispatchToProps, null, { forwardRef: true })(decor(FocalPointModal));
